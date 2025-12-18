@@ -1,0 +1,90 @@
+<div class="marquee-wrapper reveal">
+    <div class="track">
+        <div class="marquee-content">
+            <div class="tech-tag"><span></span>JAVA SPRING BOOT</div>
+            <div class="tech-tag"><span></span>.NET CORE</div>
+            <div class="tech-tag"><span></span>AWS LAMBDA</div>
+            <div class="tech-tag"><span></span>KUBERNETES</div>
+            <div class="tech-tag"><span></span>TERRAFORM</div>
+            <div class="tech-tag"><span></span>GRAPHQL</div>
+            <div class="tech-tag"><span></span>RUST</div>
+            <div class="tech-tag"><span></span>KAFKA</div>
+            <div class="tech-tag"><span></span>POSTGRESQL</div>
+            <div class="tech-tag"><span></span>OPENTELEMETRY</div>
+            <div class="tech-tag"><span></span>DOCKER</div>
+        </div>
+        <div class="marquee-content">
+            <div class="tech-tag"><span></span>JAVA SPRING BOOT</div>
+            <div class="tech-tag"><span></span>.NET CORE</div>
+            <div class="tech-tag"><span></span>AWS LAMBDA</div>
+            <div class="tech-tag"><span></span>KUBERNETES</div>
+            <div class="tech-tag"><span></span>TERRAFORM</div>
+            <div class="tech-tag"><span></span>GRAPHQL</div>
+            <div class="tech-tag"><span></span>RUST</div>
+            <div class="tech-tag"><span></span>KAFKA</div>
+            <div class="tech-tag"><span></span>POSTGRESQL</div>
+            <div class="tech-tag"><span></span>OPENTELEMETRY</div>
+            <div class="tech-tag"><span></span>DOCKER</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .marquee-wrapper {
+        position: relative;
+        background: #050505;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 24px 0;
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent
+        );
+        overflow: hidden;
+    }
+    .track {
+        display: flex;
+        gap: 60px;
+        width: max-content;
+    }
+    .marquee-content {
+        display: flex;
+        gap: 60px;
+        white-space: nowrap;
+        animation: scroll 40s linear infinite;
+    }
+    .tech-tag {
+        font-family: var(--font-code);
+        font-size: 0.95rem;
+        color: #666;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .tech-tag span {
+        width: 6px;
+        height: 6px;
+        background: #333;
+        transform: rotate(45deg);
+        display: inline-block;
+    }
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>

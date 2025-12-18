@@ -1,0 +1,294 @@
+<section id="staff" class="staff-section">
+    <div class="container">
+        <div class="staff-grid reveal">
+            <div class="staff-text-col">
+                <span class="section-subtitle mono">// STAFF_DEPLOYMENT</span>
+                <h2 class="section-title">
+                    Ingenieros validados por Ingenieros.
+                </h2>
+                <p class="section-desc">
+                    Olvida los filtros de RRHH. Nuestro proceso de selección es
+                    técnico, brutal y honesto. Solo presentamos candidatos que
+                    nosotros mismos contrataríamos.
+                </p>
+
+                <div
+                    class="feature-list"
+                    style="margin-top:30px; margin-bottom: 30px;"
+                >
+                    <div class="feature-item">
+                        <div>
+                            <span class="f-title">Real-World Scenarios</span>
+                            <span class="f-desc"
+                                >Sin pizarras blancas. Debugging de condiciones
+                                de carrera y refactorización de código legacy en
+                                vivo.</span
+                            >
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div>
+                            <span class="f-title">System Design Kata</span>
+                            <span class="f-desc"
+                                >Diseño de arquitecturas tolerantes a fallos
+                                (CAP Theorem, Sharding, Idempotencia).</span
+                            >
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div>
+                            <span class="f-title">Code Review & RFCs</span>
+                            <span class="f-desc"
+                                >Evaluamos su capacidad para comunicar
+                                decisiones técnicas complejas y dar feedback
+                                constructivo.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="#" class="btn btn-primary">Agendar Entrevista</a>
+                </div>
+            </div>
+
+            <div class="code-window">
+                <div>
+                    <div class="term-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span
+                            style="color:#666; font-size:0.75rem; margin-left:auto"
+                            >elite_pipeline.ts</span
+                        >
+                    </div>
+
+                    <div class="line">
+                        <span class="line-num">01</span><span class="c-purple"
+                            >interface</span
+                        > FullStackProfile {"{"}
+                    </div>
+                    <div class="line">
+                        <span class="line-num">02</span>&nbsp;&nbsp;tech: {"{"}
+                        <span class="c-blue">complexity</span>: <span
+                            class="c-green">'O(log n)'</span
+                        >; <span class="c-blue">threadSafe</span>: <span
+                            class="c-blue">boolean</span
+                        >
+                        {"}"};
+                    </div>
+                    <div class="line">
+                        <span class="line-num">03</span>&nbsp;&nbsp;arch: <span
+                            class="c-green">'Distributed'</span
+                        > | <span class="c-green">'Monolith'</span>;
+                    </div>
+                    <div class="line">
+                        <span class="line-num">04</span>&nbsp;&nbsp;culture: {
+                            "{"
+                        }
+                        <span class="c-blue">ego</span>: <span class="c-blue"
+                            >number</span
+                        >; <span class="c-blue">ownership</span>: <span
+                            class="c-blue">boolean</span
+                        >
+                        {"}"};
+                    </div>
+                    <div class="line">
+                        <span class="line-num">05</span>{"}"}
+                    </div>
+                    <div class="line"><span class="line-num">06</span></div>
+                    <div class="line">
+                        <span class="line-num">07</span><span class="c-purple"
+                            >const</span
+                        > assessTalent = (dev: FullStackProfile) => {"{"}
+                    </div>
+                    <div class="line">
+                        <span class="line-num">08</span>&nbsp;&nbsp;<span
+                            class="c-gray"
+                            >// 1. Hard Skills: Concurrency & Optimization</span
+                        >
+                    </div>
+                    <div class="line">
+                        <span class="line-num">09</span>&nbsp;&nbsp;<span
+                            class="c-purple">if</span
+                        > (!dev.tech.threadSafe) <span class="c-purple"
+                            >throw</span
+                        >
+                        <span class="c-purple">new</span>
+                        Error(<span class="c-green">"RACE_CONDITION_RISK"</span
+                        >);
+                    </div>
+                    <div class="line"><span class="line-num">10</span></div>
+                    <div class="line">
+                        <span class="line-num">11</span>&nbsp;&nbsp;<span
+                            class="c-gray"
+                            >// 2. Architecture: Scalability Mindset</span
+                        >
+                    </div>
+                    <div class="line">
+                        <span class="line-num">12</span>&nbsp;&nbsp;<span
+                            class="c-purple">if</span
+                        > (dev.arch !== <span class="c-green"
+                            >'Distributed'</span
+                        >) <span class="c-purple">return</span>
+                        <span class="c-green">"REJECT_LEGACY_MINDSET"</span>;
+                    </div>
+                    <div class="line"><span class="line-num">13</span></div>
+                    <div class="line">
+                        <span class="line-num">14</span>&nbsp;&nbsp;<span
+                            class="c-gray"
+                            >// 3. The Dealbreaker: "No Brilliant Jerks"</span
+                        >
+                    </div>
+                    <div class="line">
+                        <span class="line-num">15</span>&nbsp;&nbsp;<span
+                            class="c-purple">if</span
+                        > (dev.culture.ego > 10 || !dev.culture.ownership) <span
+                            class="c-purple">return</span
+                        >
+                        <span class="c-green">"CULTURE_CLASH"</span>;
+                    </div>
+                    <div class="line"><span class="line-num">16</span></div>
+                    <div class="line">
+                        <span class="line-num">17</span>&nbsp;&nbsp;<span
+                            class="c-purple">return</span
+                        >
+                        <span class="c-green">"EXTEND_OFFER_IMMEDIATELY"</span>;
+                    </div>
+                    <div class="line">
+                        <span class="line-num">18</span>{"}"}
+                    </div>
+                </div>
+
+                <div class="terminal-footer mono">
+                    <div>> Running comprehensive analysis...</div>
+                    <div class="c-gray">
+                        > Tech Check: Thread-safety verified.
+                    </div>
+                    <div class="c-gray">
+                        > Arch Check: Event-Driven patterns detected.
+                    </div>
+                    <div>
+                        > Culture Check: <span class="c-accent"
+                            >High Ownership / Low Ego.</span
+                        >
+                    </div>
+                    <div class="c-white">
+                        > Result: <span class="blink">MATCH_FOUND</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .staff-section {
+        padding: var(--section-padding);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: #030303;
+    }
+    .staff-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: stretch;
+    }
+    .staff-text-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .feature-item {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+        border-left: 2px solid #222;
+        padding-left: 24px;
+        transition: 0.3s;
+    }
+    .feature-item:hover {
+        border-left-color: var(--accent);
+    }
+    .f-title {
+        font-weight: 700;
+        color: #fff;
+        display: block;
+        margin-bottom: 6px;
+    }
+    .f-desc {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+    }
+
+    /* Code Window */
+    .code-window {
+        background: #0a0a0a;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 24px;
+        font-family: var(--font-code);
+        font-size: 0.85rem;
+        box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 400px;
+    }
+    .term-header {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    .dot.red {
+        background: #ef4444;
+    }
+    .dot.yellow {
+        background: #f59e0b;
+    }
+    .dot.green {
+        background: #10b981;
+    }
+    .line-num {
+        color: #444;
+        margin-right: 15px;
+        user-select: none;
+    }
+    .terminal-footer {
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        margin-top: auto;
+        color: #666;
+        font-size: 0.75rem;
+    }
+    .blink {
+        animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .staff-grid {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+    }
+    @media (max-width: 768px) {
+        .code-window {
+            min-height: 300px;
+        }
+    }
+</style>

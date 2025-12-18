@@ -1,0 +1,51 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+    <div class="container">
+        <div
+            class="logo mono"
+            style="justify-content: center; margin-bottom: 20px;"
+        >
+            INGENIU_
+        </div>
+        <div style="margin-bottom: 30px;">
+            <a href="#" class="footer-link">Services</a>
+            <a href="#" class="footer-link">Case Studies</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+        <p class="mono" style="font-size: 0.75rem; color: #444;">
+            &copy; {currentYear} Ingeniu Technology. Medellin - Global.<br />
+            System Status: <span class="c-accent">Operational</span>
+        </p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding: 80px 0 40px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+    }
+    .footer-link {
+        color: var(--text-muted);
+        margin: 0 10px;
+        font-size: 0.85rem;
+        transition: 0.2s;
+    }
+    .footer-link:hover {
+        color: #fff;
+    }
+    .logo {
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+    }
+    .c-accent {
+        color: var(--accent);
+    }
+</style>

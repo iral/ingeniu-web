@@ -1,0 +1,99 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+	canonicalURL?: string;
+}
+
+// Valores por defecto
+const {
+	title,
+	description = "Ingeniu - Ingeniería de software de alto calibre, sistemas distribuidos, automatización y equipos de élite.",
+	image = "/images/og-image.jpg", // Asegúrate de crear una imagen y ponerla en public/images/
+	canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteName = "Ingeniu | Elite Engineering Partners";
+
+// Schema.org para Google (JSON-LD)
+const schemaData = {
+	"@context": "https://schema.org",
+	"@type": "ProfessionalService",
+	name: "Ingeniu",
+	image: "https://ingeniu.co/logo.png", // Pon la URL real de tu logo
+	description: description,
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Medellin",
+		addressCountry: "CO",
+	},
+	priceRange: "$$$",
+};
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="alternate icon" href="/favicon.svg" />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="robots" content="index, follow" />
+		<meta name="generator" content={Astro.generator} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:site_name" content={siteName} />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700;800&display=swap"
+			rel="stylesheet"
+		/>
+
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(schemaData)}
+		/>
+	</head>
+	<body>
+		<slot />
+
+		<script>
+			// Global Scroll Reveal Observer
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("active");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+			);
+
+			document
+				.querySelectorAll(".reveal")
+				.forEach((el) => observer.observe(el));
+		</script>
+	</body>
+</html>

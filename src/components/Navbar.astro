@@ -1,0 +1,46 @@
+<nav>
+    <div class="container nav-inner">
+        <div class="logo mono">
+            <div class="status-dot"></div> INGENIU_
+        </div>
+        <a href="mailto:hello@ingeniu.com" class="mono start-project">
+            START_PROJECT()
+        </a>
+    </div>
+</nav>
+
+<style>
+    nav {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+        background: rgba(2, 2, 2, 0.85);
+        backdrop-filter: blur(16px);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+    }
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+    }
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--accent);
+    }
+    .start-project {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+</style>

@@ -1,0 +1,265 @@
+<section id="automation" class="automation-section">
+    <div class="container">
+        <div class="header-grid reveal">
+            <div class="header-content">
+                <span class="section-subtitle mono">// HYPER_AUTOMATION</span>
+                <h2 class="section-title">Ecosistemas Autónomos.</h2>
+                <p class="section-desc">
+                    Eliminamos el error humano. Pipelines que construyen,
+                    prueban y despliegan de manera determinista.
+                </p>
+            </div>
+
+            <div
+                class="stat-box"
+                style="border-color: rgba(59, 130, 246, 0.3);"
+            >
+                <div class="stat-header">LIVE METRICS_</div>
+                <div class="stat-row">
+                    <span class="stat-label">Avg. Deploy Time</span>
+                    <span class="stat-val c-white">2m 14s</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Human Ops</span>
+                    <span class="stat-val c-white">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Rollback Rate</span>
+                    <span class="stat-val c-accent">0.0%</span>
+                </div>
+                <div style="font-size: 0.7rem; color: #555; margin-top: 10px;">
+                    > Monitoring active...
+                </div>
+            </div>
+        </div>
+
+        <div class="pipeline-container reveal">
+            <div class="pipeline-track"></div>
+            <div class="data-packet"></div>
+            <div class="pipeline-steps">
+                <div class="step-node">
+                    <div class="step-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><polyline points="16 18 22 12 16 6"
+                            ></polyline><polyline points="8 6 2 12 8 18"
+                            ></polyline></svg
+                        >
+                    </div>
+                    <div class="step-title">1. CI/CD Orchestration</div>
+                    <div class="step-desc">
+                        Commits disparan pipelines en Jenkins/Actions. Tests
+                        unitarios en paralelo.
+                    </div>
+                </div>
+                <div class="step-node">
+                    <div class="step-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                            ></path></svg
+                        >
+                    </div>
+                    <div class="step-title">2. RPA & Bot Workers</div>
+                    <div class="step-desc">
+                        Bots automatizan tareas repetitivas de back-office y
+                        limpieza de logs.
+                    </div>
+                </div>
+                <div class="step-node">
+                    <div class="step-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path d="M21.21 15.89A10 10 0 1 1 8 2.83"
+                            ></path><path d="M22 12A10 10 0 0 0 12 2v10z"
+                            ></path></svg
+                        >
+                    </div>
+                    <div class="step-title">3. Self-Healing Infra</div>
+                    <div class="step-desc">
+                        Si un pod de K8s falla, el sistema escala recursos o
+                        reinicia servicios.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .automation-section {
+        padding: var(--section-padding);
+        background: linear-gradient(180deg, var(--bg-deep) 0%, #050505 100%);
+        border-top: 1px solid var(--border);
+    }
+    .pipeline-container {
+        margin-top: 60px;
+        background: #080808;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 60px 40px;
+        position: relative;
+        overflow: hidden;
+    }
+    .pipeline-track {
+        position: absolute;
+        top: 50%;
+        left: 40px;
+        right: 40px;
+        height: 2px;
+        background: #222;
+        z-index: 1;
+        transform: translateY(-50%);
+    }
+    .data-packet {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            var(--accent),
+            transparent
+        );
+        transform: translateY(-50%);
+        z-index: 2;
+        box-shadow: 0 0 20px var(--accent);
+        animation: transmit 4s infinite linear;
+    }
+    @keyframes transmit {
+        0% {
+            left: 5%;
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            left: 95%;
+            opacity: 0;
+        }
+    }
+    .pipeline-steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 3;
+    }
+    .step-node {
+        background: #080808;
+        border: 1px solid var(--border);
+        padding: 24px;
+        border-radius: 12px;
+        width: 30%;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .step-node:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+    }
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        background: #111;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        margin-bottom: 10px;
+        color: var(--accent);
+    }
+    .step-title {
+        font-weight: 700;
+        color: #fff;
+    }
+    .step-desc {
+        font-size: 0.85rem;
+        color: #777;
+    }
+    .stat-box {
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(0, 0, 0, 0.2) 100%
+        );
+        border: 1px solid var(--border);
+        padding: 24px;
+        border-radius: 12px;
+        font-family: var(--font-code);
+        font-size: 0.8rem;
+        position: relative;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .stat-header {
+        color: var(--primary);
+        margin-bottom: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .stat-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        color: #888;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+        padding-bottom: 4px;
+    }
+    .stat-val {
+        color: var(--text-main);
+        font-weight: 600;
+    }
+    .header-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 40px;
+        align-items: flex-end;
+        margin-bottom: 60px;
+        max-width: 1000px;
+    }
+
+    @media (max-width: 1024px) {
+        .pipeline-steps {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pipeline-track,
+        .data-packet {
+            display: none;
+        }
+        .step-node {
+            width: 100%;
+        }
+    }
+    @media (max-width: 900px) {
+        .header-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        .stat-box {
+            width: 100%;
+        }
+    }
+</style>
