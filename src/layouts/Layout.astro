@@ -8,22 +8,20 @@ interface Props {
 	canonicalURL?: string;
 }
 
-// Valores por defecto
 const {
 	title,
 	description = "Ingeniu - Ingeniería de software de alto calibre, sistemas distribuidos, automatización y equipos de élite.",
-	image = "/images/og-image.jpg", // Asegúrate de crear una imagen y ponerla en public/images/
+	image = "logo.svg",
 	canonicalURL = Astro.url.href,
 } = Astro.props;
 
 const siteName = "Ingeniu | Elite Engineering Partners";
 
-// Schema.org para Google (JSON-LD)
 const schemaData = {
 	"@context": "https://schema.org",
 	"@type": "ProfessionalService",
 	name: "Ingeniu",
-	image: "https://ingeniu.co/logo.png", // Pon la URL real de tu logo
+	image: "https://ingeniu.co/logo.svg",
 	description: description,
 	address: {
 		"@type": "PostalAddress",
@@ -78,7 +76,6 @@ const schemaData = {
 		<slot />
 
 		<script>
-			// Global Scroll Reveal Observer
 			const observer = new IntersectionObserver(
 				(entries) => {
 					entries.forEach((entry) => {

@@ -1,0 +1,188 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Servicios | Ingeniu">
+    <Navbar />
+
+    <main class="container" style="padding-top: 150px; padding-bottom: 100px;">
+        <div class="services-hero reveal">
+            <div class="hero-text">
+                <span class="section-subtitle mono"
+                    >// CAPABILITIES_MANIFESTO</span
+                >
+                <h1 class="section-title">Soluciones de Software a Medida</h1>
+                <p class="section-desc">
+                    No instalamos software de terceros. <b
+                        >Construimos propiedad intelectual</b
+                    > que resuelve cuellos de botella operativos y acelera el crecimiento
+                    de empresas que no se conforman con lo estándar.
+                </p>
+            </div>
+            <div class="hero-visual mono">
+                <div class="code-line">
+                    <span class="c-accent">const</span> project = <span
+                        class="c-blue">new</span
+                    >
+                    <span class="c-yellow">EngineeringSolution</span>();
+                </div>
+                <div class="code-line">
+                    project.<span class="c-blue">solve</span>(complex_problems);
+                </div>
+                <div class="code-line">
+                    project.<span class="c-blue">automate</span>(manual_waste);
+                </div>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="tag-mono">FRONT_END</div>
+                <h3>High-Performance Web</h3>
+                <p>
+                    Interfaces ultrarrápidas con Astro, React y Next.js.
+                    Optimizamos el LCP y el Core Web Vitals para una experiencia
+                    de usuario instantánea.
+                </p>
+            </div>
+
+            <div class="service-card highlight reveal">
+                <div class="tag-mono">AUTOMATION</div>
+                <h3>Intelligent Workflows</h3>
+                <p>
+                    Automatizamos tareas administrativas complejas, desde
+                    facturación masiva hasta reportes automáticos, usando IA y
+                    Python.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="tag-mono">UX_CORE</div>
+                <h3>Scalable Design Systems</h3>
+                <p>
+                    Creamos bibliotecas de componentes reutilizables que
+                    garantizan consistencia visual y velocidad de desarrollo en
+                    todos tus productos.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="tag-mono">CORE_DEV</div>
+                <h3>Full-Stack Architecture</h3>
+                <p>
+                    Sistemas integrales de punta a punta. Desde la lógica de
+                    negocio en el backend hasta la interactividad en el cliente.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="tag-mono">CLOUD_OPS</div>
+                <h3>Cloud-Native Systems</h3>
+                <p>
+                    Infraestructura elástica en AWS/Azure. Sistemas que soportan
+                    millones de usuarios sin degradación de rendimiento.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="tag-mono">SQUAD_AUG</div>
+                <h3>Engineering Sprints</h3>
+                <p>
+                    Ingenieros senior especializados en Front y Back que se
+                    integran a tu equipo bajo metodologías ágiles de alto
+                    impacto.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .services-hero {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 80px;
+    }
+    .hero-text {
+        flex: 3;
+    }
+    .hero-visual {
+        flex: 2;
+        background: #0a0a0a;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #222;
+        font-size: 0.9rem;
+    }
+    .code-line {
+        margin-bottom: 8px;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .service-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 40px;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+    .service-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+    }
+    .service-card.highlight {
+        border-color: rgba(16, 185, 129, 0.4);
+        background: #0c110e;
+    }
+    .icon {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .service-card h3 {
+        color: #fff;
+        margin-bottom: 15px;
+        font-size: 1.25rem;
+    }
+    .service-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .tag-mono {
+        font-family: var(--font-code);
+        color: var(--accent);
+        font-size: 0.7rem;
+        background: rgba(16, 185, 129, 0.1);
+        padding: 4px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 20px;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    @media (max-width: 1024px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+        .services-hero {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>

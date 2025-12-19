@@ -1,0 +1,145 @@
+---
+import InteractiveDeploy from "./InteractiveDeploy.astro";
+import BusinessAutomation from "./BusinessAutomation.astro";
+---
+
+<section id="automation" class="hub-section">
+    <div class="container">
+        <div class="header-center reveal">
+            <span class="section-subtitle mono">// AUTOMATION_SUITE</span>
+            <h2 class="section-title">Automatización en cada capa.</h2>
+            <p class="section-desc">
+                Ya sea desplegando clusters de servidores o procesando miles de
+                facturas PDF, eliminamos el error humano donde más importa.
+                Construimos sistemas que trabajan mientras tú escalas.
+            </p>
+        </div>
+
+        <div class="tabs-container reveal">
+            <button class="tab-btn active" data-target="business">
+                <span class="mono-icon">[01]</span> BUSINESS_PROCESS
+            </button>
+            <button class="tab-btn" data-target="infra">
+                <span class="mono-icon">[02]</span> INFRA_DEPLOY
+            </button>
+        </div>
+    </div>
+
+    <div class="demo-wrapper reveal">
+        <div id="demo-business" class="demo-content active">
+            <BusinessAutomation />
+        </div>
+
+        <div id="demo-infra" class="demo-content">
+            <InteractiveDeploy />
+        </div>
+    </div>
+</section>
+
+<script>
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".demo-content");
+
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            tabs.forEach((t) => t.classList.remove("active"));
+            contents.forEach((c) => c.classList.remove("active"));
+
+            tab.classList.add("active");
+
+            // @ts-ignore
+            const targetId = `demo-${tab.dataset.target}`;
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) targetContent.classList.add("active");
+        });
+    });
+</script>
+
+<style>
+    .header-center {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+    }
+
+    .section-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mono-icon {
+        color: var(--accent);
+        font-weight: bold;
+        margin-right: 8px;
+    }
+
+    .hub-section {
+        padding: var(--section-padding);
+        background: linear-gradient(180deg, var(--bg-deep) 0%, #050505 100%);
+        border-top: 1px solid var(--border);
+    }
+
+    .header-grid {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .tabs-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        background: #0a0a0a;
+        border: 1px solid #222;
+        color: #888;
+        padding: 12px 28px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .tab-btn:hover {
+        border-color: #444;
+        color: #fff;
+    }
+
+    .tab-btn.active {
+        background: rgba(16, 185, 129, 0.1);
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .demo-wrapper {
+        position: relative;
+        min-height: 500px;
+    }
+
+    .demo-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .demo-content.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
