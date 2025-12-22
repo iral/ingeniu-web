@@ -1,0 +1,1445 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const Icons = {
+    doc: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
+    server: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>`,
+    chat: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
+    sync: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>`,
+    chart: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+    check: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+    arrow: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`,
+    bolt: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+    shield: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+    scale: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 20V4"/></svg>`,
+    coin: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>`,
+    clock: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+    lock: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
+};
+---
+
+<Layout title="Plataforma de Automatización | Ingeniu">
+    <Navbar />
+
+    <main class="page-content">
+        <section class="auto-hero container reveal">
+            <div class="hero-badge mono">>> ENGINE_STATUS: ONLINE</div>
+            <h1 class="hero-title">
+                Deja de trabajar en lo que <br />
+                <span class="text-gradient">una máquina puede hacer mejor</span>
+            </h1>
+            <p class="hero-desc">
+                Tu equipo es talentoso, no dejes que pierdan el día copiando y
+                pegando datos. Diseñamos ecosistemas digitales donde tus datos
+                fluyen libremente y seguros, eliminando cuellos de botella y
+                errores de digitación. Mantén tu negocio operando a la velocidad
+                del código.
+            </p>
+        </section>
+
+        <section id="automation-hub" class="hub-section container reveal">
+            <div class="hub-toolbar">
+                <div class="traffic-lights">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="hub-address mono">
+                    ingeniu_core --<span class="dynamic-date-short">INIT</span>
+                </div>
+                <div class="hub-actions mono">
+                    <span class="blink">●</span> LIVE EXECUTION
+                </div>
+            </div>
+
+            <div class="hub-layout">
+                <div class="hub-sidebar">
+                    <div class="sidebar-title mono">CAPACIDADES ACTIVAS</div>
+                    <div class="tabs-scroll-container">
+                        <button class="hub-tab active" data-target="panel-ocr">
+                            <span class="tab-icon" set:html={Icons.doc} />
+                            <div class="tab-info">
+                                <span class="tab-name">PROCESAMIENTO DOCS</span>
+                                <span class="tab-desc"
+                                    >Lectura y extracción IA</span
+                                >
+                            </div>
+                        </button>
+                        <button class="hub-tab" data-target="panel-chat">
+                            <span class="tab-icon" set:html={Icons.chat} />
+                            <div class="tab-info">
+                                <span class="tab-name"
+                                    >ASISTENTES INTELIGENTES</span
+                                >
+                                <span class="tab-desc"
+                                    >Atención cliente & ventas</span
+                                >
+                            </div>
+                        </button>
+                        <button class="hub-tab" data-target="panel-sync">
+                            <span class="tab-icon" set:html={Icons.sync} />
+                            <div class="tab-info">
+                                <span class="tab-name">SINCRONIZACIÓN API</span>
+                                <span class="tab-desc"
+                                    >Conexión entre sistemas</span
+                                >
+                            </div>
+                        </button>
+                        <button class="hub-tab" data-target="panel-infra">
+                            <span class="tab-icon" set:html={Icons.server} />
+                            <div class="tab-info">
+                                <span class="tab-name">INFRAESTRUCTURA</span>
+                                <span class="tab-desc"
+                                    >Self-healing servers</span
+                                >
+                            </div>
+                        </button>
+                        <button class="hub-tab" data-target="panel-reports">
+                            <span class="tab-icon" set:html={Icons.chart} />
+                            <div class="tab-info">
+                                <span class="tab-name"
+                                    >BUSINESS INTELLIGENCE</span
+                                >
+                                <span class="tab-desc"
+                                    >Dashboards automáticos</span
+                                >
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hub-viewport">
+                    <div class="hub-panel active" id="panel-ocr">
+                        <div class="panel-header">
+                            <h3>Transforma documentos en datos</h3>
+                            <p>
+                                Nuestro motor de IA extrae información crítica
+                                de facturas y contratos para inyectarla
+                                directamente en tu base de datos.
+                            </p>
+                        </div>
+                        <div class="demo-split">
+                            <div class="visual-area ocr-bg">
+                                <div class="scan-laser" id="ocr-laser"></div>
+                                <div class="doc-card">
+                                    <div class="doc-top">
+                                        <div class="doc-logo">☁️</div>
+                                        <div class="doc-text">
+                                            <strong>AWS CLOUD SERVICES</strong
+                                            ><br />
+                                            <small class="dynamic-full-date"
+                                                >DATE_PLACEHOLDER</small
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="doc-row">
+                                        <span>Compute EC2</span><span
+                                            >$850.00</span
+                                        >
+                                    </div>
+                                    <div class="doc-row">
+                                        <span>Storage S3</span><span
+                                            >$120.00</span
+                                        >
+                                    </div>
+                                    <div class="doc-total">TOTAL: $970.00</div>
+
+                                    <div class="float-tag t1">
+                                        Vendor: 99.8% Conf.
+                                    </div>
+                                    <div class="float-tag t2">
+                                        Total: Validado
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-area">
+                                <div class="code-header mono">JSON_OUTPUT</div>
+                                <div class="code-content mono" id="ocr-code">
+                                    <span class="c-comment"
+                                        >// Esperando entrada de documento...</span
+                                    >
+                                </div>
+                                <button id="btn-ocr" class="btn-play">
+                                    <span>▶ INICIAR ESCANEO</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hub-panel" id="panel-chat">
+                        <div class="panel-header">
+                            <h3>Conversaciones que convierten</h3>
+                            <p>
+                                Asistentes que entienden el contexto de tu
+                                negocio, consultan tu inventario en tiempo real
+                                y cierran ventas 24/7.
+                            </p>
+                        </div>
+                        <div class="demo-chat-ui">
+                            <div class="chat-header">
+                                <div class="avatar-bot">AI</div>
+                                <div>
+                                    <strong>Ingeniu Assistant</strong><br />
+                                    <small class="online"
+                                        >● Activo hoy, <span
+                                            class="dynamic-time">TIME</span
+                                        ></small
+                                    >
+                                </div>
+                            </div>
+                            <div class="chat-body" id="chat-body">
+                                <div class="msg bot">
+                                    Hola 👋 Soy el asistente virtual. ¿Te
+                                    gustaría consultar el estado de tu pedido o
+                                    agendar una reunión?
+                                    <span class="msg-time dynamic-time-prev"
+                                        >TIME</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="chat-input-wrapper">
+                                <button id="btn-chat" class="btn-chat-action">
+                                    Simular: "Quiero agendar para el Jueves"
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hub-panel" id="panel-sync">
+                        <div class="panel-header">
+                            <h3>Ecosistema Unificado</h3>
+                            <p>
+                                Tus aplicaciones ya no son islas. Creamos
+                                puentes para que una venta en la web dispare
+                                acciones en logística y contabilidad.
+                            </p>
+                        </div>
+                        <div class="demo-sync-ui">
+                            <div class="app-nodes">
+                                <div class="node n-shopify">Shopify</div>
+                                <div class="pipe">
+                                    <div class="packet" id="packet"></div>
+                                </div>
+                                <div class="node n-slack">Slack</div>
+                                <div class="pipe">
+                                    <div class="packet" id="packet2"></div>
+                                </div>
+                                <div class="node n-sheets">ERP</div>
+                            </div>
+                            <div class="console-log mono" id="sync-log">
+                                > <span class="dynamic-time-sec">TIME</span> System
+                                Listening for Webhooks...
+                            </div>
+                            <button id="btn-sync" class="btn-play center"
+                                >▶ DISPARAR EVENTO DE VENTA</button
+                            >
+                        </div>
+                    </div>
+
+                    <div class="hub-panel" id="panel-infra">
+                        <div class="panel-header">
+                            <h3>Infraestructura Autonoma</h3>
+                            <p>
+                                Si un servidor falla a las 3 AM, nuestro código
+                                lo detecta, lo aísla y levanta uno nuevo antes
+                                de que nadie lo note.
+                            </p>
+                        </div>
+                        <div class="demo-terminal">
+                            <div class="terminal-head">
+                                <span class="dot r"></span><span class="dot y"
+                                ></span><span class="dot g"></span>
+                                root@prod-cluster-01
+                            </div>
+                            <div class="terminal-body mono" id="term-body">
+                                <div class="line">
+                                    <span class="p">➜</span>
+                                    <span class="cmd"
+                                        >system_monitor --watch</span
+                                    >
+                                </div>
+                                <div class="line output">
+                                    Cluster Status: HEALTHY
+                                </div>
+                                <div class="line output">Uptime: 99.99%</div>
+                                <div class="line">
+                                    <span class="p">➜</span>
+                                    <span class="cursor">_</span>
+                                </div>
+                            </div>
+                            <div class="terminal-foot">
+                                <button id="btn-infra" class="btn-play small"
+                                    >▶ SIMULAR PIK DE TRÁFICO</button
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hub-panel" id="panel-reports">
+                        <div class="panel-header">
+                            <h3>Visibilidad Total</h3>
+                            <p>
+                                Datos limpios y organizados entregados en tu
+                                bandeja de entrada. Toma decisiones basadas en
+                                hechos, no en intuición.
+                            </p>
+                        </div>
+                        <div class="demo-email">
+                            <div class="email-mock">
+                                <div class="e-head">
+                                    <div class="e-avatar">📊</div>
+                                    <div>
+                                        <strong>Reporte Ejecutivo Diario</strong
+                                        ><br />
+                                        <small
+                                            ><span class="dynamic-full-date"
+                                                >DATE</span
+                                            > • 8:00 AM</small
+                                        >
+                                    </div>
+                                </div>
+                                <div class="e-content" id="report-content">
+                                    <div class="skeleton w-100"></div>
+                                    <div class="skeleton w-70"></div>
+                                    <div class="skeleton-box"></div>
+                                </div>
+                            </div>
+                            <button id="btn-report" class="btn-play center"
+                                >▶ GENERAR REPORTE</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section container reveal">
+            <h2 class="section-title center">
+                El impacto de trabajar con Ingeniu
+            </h2>
+            <p class="section-subtitle-center">
+                No vendemos software, entregamos resultados operativos medibles.
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="b-icon" set:html={Icons.bolt} />
+                    <h3>Velocidad Operativa</h3>
+                    <p>
+                        Lo que a un humano le toma 4 horas, a nuestros bots les
+                        toma 4 segundos. Aceleramos tu ciclo de negocio.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="b-icon" set:html={Icons.shield} />
+                    <h3>Cero Errores</h3>
+                    <p>
+                        Eliminamos el "error de dedo". Nuestros sistemas validan
+                        cada dato contra tus reglas de negocio.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="b-icon" set:html={Icons.scale} />
+                    <h3>Escalabilidad Infinita</h3>
+                    <p>
+                        ¿Duplicaste tus ventas? No necesitas duplicar tu
+                        personal. La infraestructura absorbe la carga.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="b-icon" set:html={Icons.coin} />
+                    <h3>Reducción de Costos</h3>
+                    <p>
+                        Reduce los gastos operativos hasta un 40% al automatizar
+                        tareas repetitivas de bajo valor cognitivo.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="b-icon" set:html={Icons.clock} />
+                    <h3>Disponibilidad 24/7</h3>
+                    <p>
+                        Tu negocio no duerme. Procesamos órdenes, atendemos
+                        clientes y generamos reportes mientras descansas.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="b-icon" set:html={Icons.lock} />
+                    <h3>Seguridad y Compliance</h3>
+                    <p>
+                        Cada acción deja una traza de auditoría inmutable.
+                        Cumple normativas con logs generados automáticamente.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section container reveal">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2>¿Listo para modernizar tu operación?</h2>
+                    <p>
+                        Hablemos de tus procesos. Sin compromisos de venta, solo
+                        ingeniería pura.
+                    </p>
+                    <div class="cta-actions">
+                        <a
+                            href="mailto:contacto@ingeniu.co"
+                            class="btn-mega-glow"
+                        >
+                            Solicitar Auditoría Técnica
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-bg-effect"></div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script>
+    function updateDates() {
+        const now = new Date();
+        const dateOptions: Intl.DateTimeFormatOptions = {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+        };
+        const timeOptions: Intl.DateTimeFormatOptions = {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+        };
+
+        const dateStr = now
+            .toLocaleDateString("es-ES", dateOptions)
+            .toUpperCase();
+        const timeStr = now.toLocaleTimeString("es-ES", timeOptions);
+
+        document.querySelectorAll(".dynamic-date-short").forEach((el) => {
+            el.textContent = dateStr;
+        });
+
+        document.querySelectorAll(".dynamic-full-date").forEach((el) => {
+            el.textContent = dateStr;
+        });
+
+        document.querySelectorAll(".dynamic-time").forEach((el) => {
+            el.textContent = timeStr;
+        });
+
+        const timeSecStr = now.toLocaleTimeString("es-ES", {
+            hour: "numeric",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+        });
+        document.querySelectorAll(".dynamic-time-sec").forEach((el) => {
+            el.textContent = `[${timeSecStr}]`;
+        });
+
+        const prevTime = new Date(now.getTime() - 2 * 60000);
+        const prevTimeStr = prevTime.toLocaleTimeString("es-ES", timeOptions);
+        document.querySelectorAll(".dynamic-time-prev").forEach((el) => {
+            el.textContent = prevTimeStr;
+        });
+    }
+
+    updateDates();
+
+    const tabs = document.querySelectorAll(".hub-tab");
+    const panels = document.querySelectorAll(".hub-panel");
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            tabs.forEach((t) => t.classList.remove("active"));
+            panels.forEach((p) => p.classList.remove("active"));
+            tab.classList.add("active");
+            const target = document.getElementById(tab.dataset.target);
+            if (target) target.classList.add("active");
+        });
+    });
+
+    const btnOcr = document.getElementById("btn-ocr");
+    const laser = document.getElementById("ocr-laser");
+    const codeArea = document.getElementById("ocr-code");
+    const floatTags = document.querySelectorAll(".float-tag");
+
+    btnOcr?.addEventListener("click", () => {
+        // @ts-ignore
+        if (btnOcr.disabled) return;
+        // @ts-ignore
+        btnOcr.disabled = true;
+        btnOcr.innerHTML = "<span>⏳ ESCANENDO...</span>";
+        laser?.classList.add("active");
+
+        const now = new Date().toLocaleDateString("es-ES");
+
+        setTimeout(() => {
+            floatTags.forEach((t) => t.classList.add("show"));
+            codeArea.innerHTML = `<span class="k">"vendor"</span>: <span class="s">"AWS CLOUD"</span>,\n<span class="k">"date"</span>: <span class="s">"${now}"</span>,\n<span class="k">"total"</span>: <span class="n">970.00</span>,\n<span class="k">"status"</span>: <span class="s">"VALID"</span> ✅`;
+        }, 1200);
+
+        setTimeout(() => {
+            laser?.classList.remove("active");
+            // @ts-ignore
+            btnOcr.disabled = false;
+            btnOcr.innerHTML = "<span>▶ INICIAR ESCANEO</span>";
+            floatTags.forEach((t) => t.classList.remove("show"));
+        }, 3000);
+    });
+
+    const btnChat = document.getElementById("btn-chat");
+    const chatBody = document.getElementById("chat-body");
+
+    const bubbleBase =
+        "padding: 12px 16px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; margin-bottom: 4px; display: inline-block; max-width: 85%; font-family: sans-serif; transition: all 0.3s ease;";
+    const userBubble = `${bubbleBase} background: #10b981; color: #000; border-bottom-right-radius: 2px;`;
+    const botBubble = `${bubbleBase} background: #262626; color: #fff; border: 1px solid #333; border-bottom-left-radius: 2px;`;
+    const timeStyle =
+        "display: block; font-size: 0.7rem; color: #666; margin-bottom: 15px;";
+
+    btnChat?.addEventListener("click", () => {
+        if (btnChat.hasAttribute("disabled")) return;
+        btnChat.setAttribute("disabled", "true");
+        btnChat.style.opacity = "0.5";
+
+        const now = new Date();
+        const time =
+            now.getHours() +
+            ":" +
+            (now.getMinutes() < 10 ? "0" : "") +
+            now.getMinutes();
+
+        const userDiv = document.createElement("div");
+        userDiv.style.textAlign = "right";
+        userDiv.innerHTML = `
+        <div style="${userBubble}">Agendar reunión para revisión de KPIs</div>
+        <span style="${timeStyle}">${time}</span>
+    `;
+        chatBody?.appendChild(userDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        setTimeout(() => {
+            const botDiv = document.createElement("div");
+            const cardStyle =
+                "margin-top: 10px; background: #1a1a1a; border: 1px solid #444; border-radius: 8px; padding: 12px; text-align: left;";
+            const btnSlack =
+                "width: 100%; margin-top: 10px; background: transparent; border: 1px solid #10b981; color: #10b981; padding: 8px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; font-weight: bold; transition: 0.2s;";
+
+            botDiv.innerHTML = `
+            <div style="${botBubble}">
+                Perfecto. He sincronizado tu calendario. ¿Notifico al equipo?
+                <div style="${cardStyle}">
+                    <span style="font-weight:bold; color:#10b981; font-size:0.8rem; display:block; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:8px;">📅 Google Calendar</span>
+                    <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#ccc;"><span>Evento:</span> <span>Revisión KPIs</span></div>
+                    <button id="confirm-slack" style="${btnSlack}" onmouseover="this.style.background='#10b981'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='#10b981'">
+                        Confirmar y enviar a Slack
+                    </button>
+                </div>
+            </div>
+            <span style="${timeStyle}">${time}</span>
+        `;
+            chatBody?.appendChild(botDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            document
+                .getElementById("confirm-slack")
+                ?.addEventListener("click", function () {
+                    const btnSlack = this;
+                    btnSlack.disabled = true;
+                    btnSlack.innerText = "Enviando...";
+                    btnSlack.style.cursor = "not-allowed";
+                    btnSlack.style.opacity = "0.7";
+
+                    setTimeout(() => {
+                        btnSlack.innerText = "Enviado ✅";
+                        btnSlack.style.background = "rgba(16, 185, 129, 0.2)";
+                        btnSlack.style.borderColor = "#10b981";
+                        btnSlack.style.color = "#10b981";
+
+                        const finalDiv = document.createElement("div");
+                        finalDiv.style.animation = "fadeIn 0.5s ease forwards";
+                        finalDiv.innerHTML = `
+            <div style="${botBubble} border-color: #10b981; background: rgba(16, 185, 129, 0.05); margin-top: 10px;">
+                <div style="display:flex; align-items:flex-start; gap:10px;">
+                    <span style="font-size:1.2rem;">🚀</span>
+                    <span>
+                        <strong>¡Flujo Completado!</strong><br/>
+                        La minuta ha sido enviada y las tareas creadas. 
+                        Ingeniu ha ahorrado <strong>15 minutos</strong> de trabajo manual en este paso.
+                    </span>
+                </div>
+            </div>
+            <span style="${timeStyle}">${time}</span>
+        `;
+                        chatBody?.appendChild(finalDiv);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+
+                        if (btnChat) {
+                            btnChat.innerText = "Simulación Finalizada";
+                            btnChat.style.background = "#333";
+                            btnChat.style.color = "#666";
+                            btnChat.style.borderColor = "#444";
+                            btnChat.setAttribute("disabled", "true");
+                        }
+                    }, 1200);
+                });
+        }, 800);
+    });
+
+    const btnSync = document.getElementById("btn-sync");
+    const p1 = document.getElementById("packet");
+    const p2 = document.getElementById("packet2");
+    const log = document.getElementById("sync-log");
+
+    btnSync?.addEventListener("click", () => {
+        // @ts-ignore
+        if (btnSync.disabled) return;
+        // @ts-ignore
+        btnSync.disabled = true;
+
+        const ts = new Date().toLocaleTimeString("es-ES", { hour12: false });
+        log.innerHTML = `> [${ts}] 🛍️ New Order #8821 received...`;
+        p1.style.opacity = "1";
+        p1.style.left = "100%";
+
+        setTimeout(() => {
+            log.innerHTML += `<br>> [${ts}] 💬 Slack Alert Sent.`;
+            p1.style.opacity = "0";
+            p1.style.left = "0";
+
+            p2.style.opacity = "1";
+            p2.style.left = "100%";
+        }, 1000);
+
+        setTimeout(() => {
+            log.innerHTML += `<br>> [${ts}] 📊 ERP Database Updated.`;
+            log.innerHTML += `<br>> <span class="s">SYNC SUCCESSFUL ✅</span>`;
+            p2.style.opacity = "0";
+            p2.style.left = "0";
+            // @ts-ignore
+            btnSync.disabled = false;
+        }, 2000);
+    });
+
+    const btnInfra = document.getElementById("btn-infra");
+    const term = document.getElementById("term-body");
+    const infraLines = [
+        "Detecting High Load... ⚠️",
+        "Scaling Group: Adding +2 Nodes",
+        "Provisioning aws_instance...",
+        "Load Balancer: Re-routing traffic",
+        "<span class='n'>Traffic Normalized. CPU: 45% 🟢</span>",
+    ];
+
+    btnInfra?.addEventListener("click", () => {
+        // @ts-ignore
+        if (btnInfra.disabled) return;
+        // @ts-ignore
+        btnInfra.disabled = true;
+        term.innerHTML = "";
+
+        let d = 0;
+        infraLines.forEach((line) => {
+            d += 800;
+            setTimeout(() => {
+                term.innerHTML += `<div class="line"><span class="p">➜</span> ${line}</div>`;
+                term.scrollTop = term.scrollHeight;
+            }, d);
+        });
+
+        setTimeout(() => {
+            // @ts-ignore
+            btnInfra.disabled = false;
+            term.innerHTML += `<div class="line"><span class="p">➜</span> <span class="cursor">_</span></div>`;
+        }, d + 500);
+    });
+
+    const btnReport = document.getElementById("btn-report");
+    const repContent = document.getElementById("report-content");
+
+    btnReport?.addEventListener("click", () => {
+        // @ts-ignore
+        if (btnReport.disabled) return;
+        // @ts-ignore
+        btnReport.disabled = true;
+        btnReport.innerText = "GENERANDO GRÁFICOS...";
+        repContent.classList.add("loading");
+
+        setTimeout(() => {
+            repContent.classList.remove("loading");
+            repContent.innerHTML = `
+                <div style="text-align:center; padding:10px;">
+                    <div style="font-size:2rem; color:#10b981;">📈 +32%</div>
+                    <small>Rendimiento Mensual</small>
+                </div>
+                <div style="background:#f4f4f5; padding:8px; border-radius:4px; font-size:0.8rem; color:#333;">
+                    ✅ Uptime: 100%<br>
+                    ✅ Costos: -15%
+                </div>
+            `;
+            // @ts-ignore
+            btnReport.disabled = false;
+            btnReport.innerText = "▶ GENERAR NUEVO REPORTE";
+        }, 1500);
+    });
+</script>
+
+<style>
+    :root {
+        --bg-hub: #0a0a0a;
+        --border-hub: #222;
+        --sidebar: #111;
+        --accent: #10b981;
+    }
+
+    .page-content {
+        padding-top: 140px;
+        padding-bottom: 80px;
+    }
+    .auto-hero {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 80px;
+    }
+    .hero-badge {
+        color: var(--accent);
+        font-family: var(--font-code);
+        font-size: 0.8rem;
+        background: rgba(16, 185, 129, 0.08);
+        padding: 6px 14px;
+        border-radius: 50px;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+    .hero-title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 25px;
+        font-weight: 700;
+        color: #fff;
+    }
+    .hero-desc {
+        font-size: 1.15rem;
+        color: #a0a0a0;
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .text-gradient {
+        background: linear-gradient(90deg, #fff 0%, #888 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hub-section {
+        margin-bottom: 120px;
+    }
+    .hub-toolbar {
+        background: #1a1a1a;
+        border: 1px solid var(--border-hub);
+        border-bottom: none;
+        border-radius: 12px 12px 0 0;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .traffic-lights {
+        display: flex;
+        gap: 8px;
+    }
+    .traffic-lights span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #333;
+    }
+    .traffic-lights span:nth-child(1) {
+        background: #ff5f56;
+    }
+    .traffic-lights span:nth-child(2) {
+        background: #ffbd2e;
+    }
+    .traffic-lights span:nth-child(3) {
+        background: #27c93f;
+    }
+    .hub-address {
+        color: #888;
+        font-size: 0.8rem;
+    }
+    .hub-actions {
+        color: var(--accent);
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .blink {
+        animation: blink 2s infinite;
+    }
+
+    .hub-layout {
+        display: flex;
+        min-height: 520px;
+        background: var(--bg-hub);
+        border: 1px solid var(--border-hub);
+        border-radius: 0 0 12px 12px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .hub-sidebar {
+        width: 280px;
+        background: #111;
+        border-right: 1px solid var(--border-hub);
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar-title {
+        padding: 20px;
+        font-size: 0.7rem;
+        color: #555;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+    .tabs-scroll-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .hub-tab {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 20px;
+        background: transparent;
+        border: none;
+        border-left: 2px solid transparent;
+        color: #666;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+        transition: 0.2s;
+    }
+    .hub-tab:hover {
+        background: rgba(255, 255, 255, 0.03);
+        color: #ccc;
+    }
+    .hub-tab.active {
+        background: rgba(16, 185, 129, 0.05);
+        color: #fff;
+        border-left-color: var(--accent);
+    }
+    .tab-icon {
+        color: #555;
+        transition: 0.2s;
+    }
+    .hub-tab.active .tab-icon {
+        color: var(--accent);
+    }
+    .tab-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .tab-name {
+        font-family: var(--font-code);
+        font-size: 0.75rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 2px;
+    }
+    .tab-desc {
+        font-size: 0.7rem;
+        color: #555;
+    }
+
+    .hub-viewport {
+        flex: 1;
+        position: relative;
+        background: #080808;
+    }
+    .hub-panel {
+        display: none;
+        padding: 40px;
+        height: 100%;
+        overflow-y: auto;
+        animation: fadeIn 0.4s;
+    }
+    .hub-panel.active {
+        display: block;
+    }
+    .panel-header {
+        margin-bottom: 40px;
+        text-align: left;
+    }
+    .panel-header h3 {
+        font-size: 1.8rem;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    .panel-header p {
+        color: #888;
+        font-size: 1rem;
+        max-width: 600px;
+    }
+
+    .btn-play {
+        background: #222;
+        color: #fff;
+        border: 1px solid #444;
+        padding: 10px 20px;
+        font-family: var(--font-code);
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: 0.3s;
+        margin-top: 15px;
+    }
+    .btn-play:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+    .btn-play.center {
+        display: block;
+        margin: 20px auto 0;
+    }
+
+    .demo-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .visual-area {
+        background: #141414;
+        border: 1px solid #333;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .doc-card {
+        background: #fff;
+        width: 180px;
+        height: 240px;
+        padding: 15px;
+        color: #000;
+        font-family: sans-serif;
+        font-size: 10px;
+        border-radius: 2px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    .doc-top {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    .doc-row {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 4px 0;
+    }
+    .doc-total {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: right;
+        font-size: 12px;
+    }
+    .scan-laser {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent);
+        opacity: 0;
+    }
+    .scan-laser.active {
+        opacity: 1;
+        animation: scan 1.5s infinite;
+    }
+    .float-tag {
+        position: absolute;
+        background: var(--accent);
+        color: #000;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 9px;
+        font-weight: bold;
+        opacity: 0;
+        transition: 0.3s;
+        transform: scale(0.8);
+    }
+    .float-tag.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .t1 {
+        top: 20px;
+        right: 20px;
+    }
+    .t2 {
+        bottom: 40px;
+        left: 20px;
+    }
+
+    .code-area {
+        display: flex;
+        flex-direction: column;
+        background: #0e0e0e;
+        border: 1px solid #222;
+        border-radius: 8px;
+        padding: 15px;
+    }
+    .code-content {
+        flex: 1;
+        color: #aaa;
+        font-size: 0.85rem;
+    }
+
+    .demo-chat-ui {
+        max-width: 400px;
+        margin: 0 auto;
+        border: 1px solid #333;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #111;
+    }
+    .chat-header {
+        background: #1a1a1a;
+        padding: 10px 15px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        border-bottom: 1px solid #222;
+        color: #fff;
+        font-size: 0.9rem;
+    }
+    .online {
+        color: var(--accent);
+        font-size: 0.7rem;
+    }
+    .chat-body {
+        height: 250px;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: #0f0f0f;
+    }
+    .msg {
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        max-width: 80%;
+        position: relative;
+        animation: slideUp 0.3s;
+    }
+    .msg-time {
+        display: block;
+        font-size: 9px;
+        opacity: 0.6;
+        margin-top: 4px;
+        text-align: right;
+    }
+    .msg.bot {
+        background: #222;
+        color: #ddd;
+        align-self: flex-start;
+        border-bottom-left-radius: 0;
+    }
+    .msg.user {
+        background: var(--accent);
+        color: #000;
+        align-self: flex-end;
+        border-bottom-right-radius: 0;
+    }
+    .chat-input-wrapper {
+        padding: 10px;
+        background: #1a1a1a;
+        border-top: 1px solid #333;
+    }
+    .btn-chat-action {
+        width: 100%;
+        padding: 10px;
+        background: #333;
+        border: 1px solid #444;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: 0.3s;
+    }
+    .btn-chat-action:hover {
+        background: #444;
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    .demo-sync-ui {
+        text-align: center;
+        padding: 20px;
+    }
+    .app-nodes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 30px;
+    }
+    .node {
+        width: 70px;
+        height: 70px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.75rem;
+        color: #fff;
+        font-weight: bold;
+        position: relative;
+        z-index: 2;
+    }
+    .pipe {
+        width: 80px;
+        height: 4px;
+        background: #222;
+        position: relative;
+        z-index: 1;
+    }
+    .packet {
+        width: 24px;
+        height: 24px;
+        background: #222;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        opacity: 0;
+        transition: left 1s linear;
+        font-size: 12px;
+    }
+    .console-log {
+        background: #000;
+        padding: 15px;
+        text-align: left;
+        font-size: 0.8rem;
+        color: #888;
+        border-radius: 6px;
+        border: 1px solid #222;
+        height: 80px;
+        overflow: hidden;
+    }
+
+    .terminal-head {
+        background: #222;
+        padding: 5px 10px;
+        border-radius: 6px 6px 0 0;
+        font-size: 0.7rem;
+        color: #aaa;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-code);
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+    .r {
+        background: #f56565;
+    }
+    .y {
+        background: #ecc94b;
+    }
+    .g {
+        background: #48bb78;
+    }
+    .terminal-body {
+        background: #000;
+        color: #ccc;
+        padding: 15px;
+        height: 220px;
+        font-size: 0.85rem;
+        overflow-y: auto;
+    }
+
+    .demo-email {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .email-mock {
+        background: #fff;
+        color: #000;
+        border-radius: 6px;
+        overflow: hidden;
+        height: 250px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .e-head {
+        background: #f5f5f5;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .e-avatar {
+        width: 30px;
+        height: 30px;
+        background: #ddd;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .e-content {
+        padding: 20px;
+    }
+    .skeleton {
+        background: #eee;
+        height: 8px;
+        margin-bottom: 8px;
+        border-radius: 4px;
+    }
+    .w-100 {
+        width: 100%;
+    }
+    .w-70 {
+        width: 70%;
+    }
+    .skeleton-box {
+        height: 100px;
+        background: #f9f9f9;
+        border: 1px dashed #ccc;
+        margin-top: 15px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #999;
+    }
+    .loading .skeleton,
+    .loading .skeleton-box {
+        animation: pulseBg 1s infinite;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+    .benefit-card {
+        background: #0f0f0f;
+        border: 1px solid #222;
+        padding: 30px;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+    .benefit-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+    }
+    .b-icon {
+        color: var(--accent);
+        margin-bottom: 20px;
+    }
+    .benefit-card h3 {
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    .benefit-card p {
+        color: #999;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .cta-card {
+        background: linear-gradient(135deg, #111 0%, #050505 100%);
+        border: 1px solid #222;
+        border-radius: 20px;
+        padding: 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin-top: 50px;
+    }
+    .cta-content {
+        position: relative;
+        z-index: 2;
+    }
+    .cta-card h2 {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    .cta-card p {
+        color: #aaa;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+    .btn-mega-glow {
+        background: var(--accent);
+        color: #000;
+        padding: 15px 40px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+    .btn-mega-glow:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
+    }
+    .cta-bg-effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 50% -20%,
+            rgba(16, 185, 129, 0.1),
+            transparent 70%
+        );
+        z-index: 1;
+    }
+
+    .k {
+        color: #7dd3fc;
+    }
+    .s {
+        color: #fca5a5;
+    }
+    .n {
+        color: #bef264;
+    }
+    .c-comment {
+        color: #555;
+        font-style: italic;
+    }
+    .section-title.center {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    .section-subtitle-center {
+        text-align: center;
+        color: #888;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 40px;
+    }
+
+    @keyframes scan {
+        0% {
+            top: 0;
+        }
+        50% {
+            top: 100%;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+    @keyframes pulseBg {
+        0% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.5;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hub-layout {
+            flex-direction: column;
+            min-height: auto;
+        }
+        .hub-sidebar {
+            width: 100%;
+            border-right: none;
+            border-bottom: 1px solid var(--border-hub);
+        }
+        .tabs-scroll-container {
+            flex-direction: row;
+            overflow-x: auto;
+            padding: 10px;
+        }
+        .hub-tab {
+            width: auto;
+            padding: 10px 15px;
+            flex-shrink: 0;
+            border: none;
+        }
+        .hub-tab.active {
+            background: #222;
+            border-radius: 6px;
+        }
+        .tab-desc {
+            display: none;
+        }
+        .demo-split {
+            grid-template-columns: 1fr;
+        }
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
