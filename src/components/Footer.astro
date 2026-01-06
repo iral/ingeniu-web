@@ -1,5 +1,5 @@
 ---
-const currentYear = new Date().getFullYear();
+
 ---
 
 <footer>
@@ -16,11 +16,16 @@ const currentYear = new Date().getFullYear();
             <a href="mailto:contacto@ingeniu.co" class="footer-link">Contact</a>
         </div>
         <p class="mono" style="font-size: 0.75rem; color: #444;">
-            &copy; {currentYear} Ingeniu Technology. Medellin - Global.<br />
+            &copy; <span id="year"></span> Ingeniu Technology. Medellin - Global.<br
+            />
             System Status: <span class="c-accent">Operational</span>
         </p>
     </div>
 </footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 <style>
     footer {
